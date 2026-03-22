@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import { useEffect, useState } from 'react';
 import { CardList } from './components/cards/CardList';
 import { FilterInput } from './components/FilterInput';

@@ -1,11 +1,7 @@
 import { CardItem } from './CardItem';
 import '../../styles/cards.css';
 import type { Card } from '../../types/card';
-
-const cardColors: Record<string, string> = {
-    'lkmfkl-mlfkm-dlkfm': 'lightblue',
-    'elek-n3lk-4m3lk4': 'lightgrey',
-};
+import cardColors from '../../constants/cardColors';
 
 type CardListProps = {
     cards: Card[];
@@ -15,7 +11,7 @@ type CardListProps = {
 
 export function CardList({ cards, activeCardId, onSelectCard }: CardListProps) {
     return (
-        <div className='card-list'>
+        <ul className='card-list'>
             {cards.map((card) => (
                 <CardItem
                     key={card.id}
@@ -26,6 +22,6 @@ export function CardList({ cards, activeCardId, onSelectCard }: CardListProps) {
                     onClick={() => onSelectCard(card.id)}
                 />
             ))}
-        </div>
+        </ul>
     );
 }

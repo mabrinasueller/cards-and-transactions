@@ -8,7 +8,11 @@ export function TransactionItem({
     color: string;
 }) {
     return (
-        <li className='transaction-item' style={{ backgroundColor: color }}>
+        <li
+            className='transaction-item'
+            style={{ backgroundColor: color }}
+            tabIndex={0}
+        >
             <span>{description}</span>
             <span>{amount}</span>
         </li>
