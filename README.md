@@ -1,89 +1,95 @@
-# Cards & Transactions Overview – Frontend Exercise
+## How to Run the Project
 
-This exercise is a small frontend application that simulates a banking-style overview page.
-
-The goal is to build a page where a user can view payment cards, select one of them, and inspect its transactions. The user must also be able to filter the transactions by amount.
-
-A rough interface sketch is included in the repository to illustrate the intended layout and interaction. The design is only guidance — a pixel-perfect implementation is **not required**.
-
-**Expected time investment:** ~4 hours
-
-![image](docs/cardTransactionDesigns.png)
-
-
-## Functional Requirements
-
-### Card Selection
-
-* Display a list of payment cards
-* The user can select one of the cards
-* The selected card becomes the active context of the page
-
-### Transactions
-
-* When a card is selected, show the transactions belonging to that card
-* The transactions should visually relate to the selected card (for example: matching background color or another clear visual connection)
-
-### Filtering
-
-* A numeric filter field must exist between the cards and the transactions list
-* The user can enter an amount
-* Only transactions with an amount **greater than or equal to** the entered value remain visible
-* When the user switches to another card, the filter input resets
-
-## Technical Setup
-
-Use the framework relevant to the role you applied for (e.g. React, Vue, etc.).
-
-You may:
-
-* use the included starter project, or
-* create your own setup from scratch
-
-You are free to add any libraries you consider appropriate (state management, routing, testing tools, UI helpers, etc.).
-
-If you use the starter project:
+**Install dependencies:**
 
 ```bash
 yarn
+# or
+npm install
 ```
 
-## Data Source
+**Start the development server:**
 
-The repository contains example data inside `src/data` as JSON files.
+```bash
+yarn dev
+# or
+npm run dev
+```
 
-You may use this data as the backing data for the application.
-However, the application should be implemented as if the data were loaded from an external API rather than directly from static imports.
+**Open the app in your browser:**
 
-In other words, structure your solution so that replacing the local data with real network requests would not require major changes to the application architecture.
+Once the development server is running, you can view the app at:
 
-## General Expectations
+```bash
+http://localhost:5174/
+```
 
-We are interested in how you approach implementing a feature in a small application.
+If the port is already in use, Vite may use a different one - check the terminal output to confirm.
 
-If you complete the core requirements early, you are welcome to extend the solution further or refine parts of the implementation. Additional improvements are optional and should not be necessary to submit a valid solution.
+**Run tests:**
 
-### Junior
+```bash
+yarn test
+# or
+npm test
+```
 
-A working implementation that follows the described behavior and is reasonably understandable.
+**Run tests:**
 
-### Mid-Level
+```bash
+yarn lint
+# or
+npm run lint
+```
 
-A well-structured and maintainable solution with clear organization and thoughtful implementation choices.
+**Preview the production build:**
 
-### Senior
+```bash
+yarn preview
+# or
+npm run preview
+```
 
-A solution that reflects engineering maturity and consideration for long-term maintainability and scalability.
+## Implemented design
 
-## What to Include in Your Submission
+![image](cardTransactionUI.png)
 
-Please provide:
+## Assumptions & Tradeoffs
 
-* the full source code
-* a short `README` explaining:
+- The app uses local JSON files as a mock data source, but the data-fetching logic is structured so it could easily be swapped for real API calls.
+- I used React’s built-in state and hooks for state management, as the app is small and doesn’t require a global state library.
+- Accessibility was a priority: interactive elements use semantic HTML (`<button>`, `<ul>`, `<li>`) and keyboard navigation is supported.
+- I kept styling simple and focused on clarity and maintainability, using CSS files colocated with components where appropriate.
+- I did not add routing or advanced state management, as the requirements did not call for it.
 
-  * how to run the project
-  * assumptions or tradeoffs you made
-  * what you would improve with more time
+---
 
-The goal of this exercise is to understand your technical decisions and development approach when implementing a real feature.
+## What I Would Improve With More Time
+
+- To enable code linting with npm run lint, I included ESLint in the project. While it is a third-party dependency, I chose to add it
+  because it is an industry-standard tool for insuring code quality and consistency. I did spent too much time debugging issues though.
+- Adjust the filter input to filter by words, since that is the main use for users. I would also introduce DOMPurify to sanitize HTML.
+- Only show values that match the input exactly, as this would likely be more user-friendly.
+- Add a reset option for the input.
+- Add more comprehensive accessibility testing (e.g., using axe or jest-axe).
+- Add additional styling for different breakpoints.
+- Refine the UI/UX, possibly using a component library for more polished visuals and built-in accessibility.
+- Add integration tests and more edge-case unit tests, especially if the app gets more complex.
+- Add loading and error states for data fetching.
+
+---
+
+## Development Approach & Time Spent
+
+- Planning & setup: ~1 hour (project structure, initial decisions)
+- Component & hook implementation: ~1.5 hours
+- Styling & accessibility: ~1 hour
+- Testing & cleanup: ~1 hour
+- Fixing Lint issue: ~1 hours
+- **Total:** ~5.5 hours
+
+I focused on separation of concerns, clean code, and accessibility throughout the implementation.
+
+---
+
+A video has also been added to the repository.
