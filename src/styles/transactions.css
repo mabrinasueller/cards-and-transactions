@@ -1,0 +1,15 @@
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    text-align: left;
+    padding: 16px;
+}
